@@ -48,7 +48,7 @@ plugins=(
 source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+[[ -f /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme ]] && source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 source <(docker completion zsh)
@@ -194,4 +194,3 @@ alias vim='vi'
 eval $(thefuck --alias fk)
 
 eval $(thefuck --alias)
-
