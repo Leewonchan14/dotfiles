@@ -170,8 +170,11 @@ eval "$(zoxide init zsh)"
 
 export FZF_DEFAULT_COMMAND='fd ".*" ~ --hidden --follow --exclude .git'
 export FZF_CURRENT_COMMAND='fd ".*" . --hidden --follow --exclude .git'
+export XDG_CONFIG_HOME="$HOME/.config"
+
 
 alias vi=nvim
+# zoxide edit
 alias cdd=z # Space tab for search
 alias cdf='z $(fd '\''.*'\'' ~ --type d --hidden --follow --exclude .git | fzf)'
 # alias hisf='eval "$(history | tail -r | fzf | xargs | awk '\''{$1=""; print $0}'\'')"'
@@ -188,7 +191,6 @@ alias slp='sleep'
 alias vif='vi $(eval $FZF_DEFAULT_COMMAND | fzf)'
 alias vifc='vi $(eval $FZF_CURRENT_COMMAND| fzf)'
 alias copy='pbcopy'
-alias lzd='lazydocker'
 alias vim='vi'
 
 eval $(thefuck --alias fk)
