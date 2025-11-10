@@ -481,7 +481,7 @@
                                     "key_code": "j",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "mouse_key": { "y": 1536 } }],
+                                "to": [{ "mouse_key": { "y": 3072 } }],
                                 "type": "basic"
                             },
                             {
@@ -530,7 +530,7 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "mouse_key": { "y": 1536 } }
+                                    { "mouse_key": { "y": 3072 } }
                                 ],
                                 "type": "basic"
                             },
@@ -566,7 +566,7 @@
                                     "key_code": "k",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "mouse_key": { "y": -1536 } }],
+                                "to": [{ "mouse_key": { "y": -3072 } }],
                                 "type": "basic"
                             },
                             {
@@ -615,7 +615,7 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "mouse_key": { "y": -1536 } }
+                                    { "mouse_key": { "y": -3072 } }
                                 ],
                                 "type": "basic"
                             },
@@ -651,7 +651,7 @@
                                     "key_code": "h",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "mouse_key": { "x": -1536 } }],
+                                "to": [{ "mouse_key": { "x": -3072 } }],
                                 "type": "basic"
                             },
                             {
@@ -700,7 +700,7 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "mouse_key": { "x": -1536 } }
+                                    { "mouse_key": { "x": -3072 } }
                                 ],
                                 "type": "basic"
                             },
@@ -736,7 +736,7 @@
                                     "key_code": "l",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "mouse_key": { "x": 1536 } }],
+                                "to": [{ "mouse_key": { "x": 3072 } }],
                                 "type": "basic"
                             },
                             {
@@ -785,7 +785,7 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "mouse_key": { "x": 1536 } }
+                                    { "mouse_key": { "x": 3072 } }
                                 ],
                                 "type": "basic"
                             },
@@ -1154,7 +1154,7 @@
                                     "key_code": "g",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "mouse_key": { "speed_multiplier": 0.5 } }],
+                                "to": [{ "mouse_key": { "speed_multiplier": 0.25 } }],
                                 "type": "basic"
                             },
                             {
@@ -1203,7 +1203,7 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "mouse_key": { "speed_multiplier": 0.5 } }
+                                    { "mouse_key": { "speed_multiplier": 0.25 } }
                                 ],
                                 "type": "basic"
                             },
