@@ -196,3 +196,6 @@ alias vim='vi'
 eval $(thefuck --alias fk)
 
 eval $(thefuck --alias)
+
+# Added by Antigravity
+export PATH="/Users/twoone14/.antigravity/antigravity/bin:$PATH"
