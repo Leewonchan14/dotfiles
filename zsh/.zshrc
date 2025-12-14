@@ -1,3 +1,7 @@
+# Kiro CLI pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+# === Kiro CLI pre block. Keep at the top of this file. end ===
+
 # zmodload zsh/zprof
 
 autoload -Uz compinit
@@ -13,11 +17,6 @@ export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S |"
 export PAGER='less -R'
 export MANPAGER='nvim +Man!'
 
-# === Amazon Q pre block. Keep at the top of this file. ===
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
-# === Amazon Q pre block. Keep at the top of this file. end ===
-
-# If you come from bash you might have to change your $PATH.
 export PATH=/opt/homebrew/bin:$PATH
 
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -46,7 +45,7 @@ plugins=(
   zsh-syntax-highlighting
   zsh-better-npm-completion
 )
-source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 [[ -f /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme ]] && source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
@@ -109,11 +108,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
 # export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 # === libpq (postgres) end ===
-
-# === Amazon Q post block. Keep at the bottom of this file. ===
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
-alias claude="~/.claude/local/claude"
-# === Amazon Q post block. Keep at the bottom of this file. end ===
 
 # >>> conda initialize (Lazy Loading) >>>
 __conda_lazy_load() {
@@ -181,12 +175,13 @@ export FZF_CURRENT_COMMAND='fd ".*" . --hidden --follow --exclude .git'
 export XDG_CONFIG_HOME="$HOME/.config"
 
 alias vi=nvim
+alias claude="~/.claude/local/claude"
 # zoxide edit
 alias cdd=z # Space tab for search
 alias cdf='z $(fd '\''.*'\'' ~ --type d --hidden --follow --exclude .git | fzf)'
 # alias hisf='eval "$(history | tail -r | fzf | xargs | awk '\''{$1=""; print $0}'\'')"'
-alias hisf='print -z $(history | tail -r | fzf | xargs | awk '\''{$1=""; print $0}'\'' | cat)'
-alias his='print -z $(history | tail -r | fzf | xargs | awk '\''{$1=""; print $0}'\'' | cat)'
+alias hisf='print -z $(history | awk '\''{$1=""; sub(/^ /, ""); if (!seen[$0]++) print $0}'\'' | tail -r | fzf)'
+alias his="hisf"
 alias psf='ps -eo pid,lstart,etime,command | awk '\''NR==1; NR>1 {print | "sort -k5M -k6 -k7"}'\'' | fzf | awk '\''{print $1}'\'''
 alias cursorf='cursor $(eval $FZF_DEFAULT_COMMAND | fzf)'
 alias codef='code $(eval $FZF_DEFAULT_COMMAND | fzf)'
@@ -203,3 +198,9 @@ alias anti='/Users/twoone14/.antigravity/antigravity/bin/antigravity'
 
 eval $(thefuck --alias fk)
 eval $(thefuck --alias)
+
+# Kiro CLI post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
+# Kiro CLI post block. Keep at the bottom of this file.
+
+setopt HIST_FIND_NO_DUPS
