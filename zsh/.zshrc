@@ -19,6 +19,7 @@ export MANPAGER='nvim +Man!'
 
 # If you come from bash you might have to change your $PATH.
 export PATH=/opt/homebrew/bin:$PATH
+
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 if type brew &>/dev/null; then
@@ -155,6 +156,13 @@ chain() {
   done
 }
 
+# pyenv setting
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+# pyenv setting end
+
+eval "$(direnv hook zsh)"
+
 alias tm=tmux
 alias tmksv="tm kill-server"
 alias tmkss="tm kill-session"
@@ -171,7 +179,6 @@ eval "$(zoxide init zsh)"
 export FZF_DEFAULT_COMMAND='fd ".*" ~ --hidden --follow --exclude .git'
 export FZF_CURRENT_COMMAND='fd ".*" . --hidden --follow --exclude .git'
 export XDG_CONFIG_HOME="$HOME/.config"
-
 
 alias vi=nvim
 # zoxide edit
@@ -192,10 +199,7 @@ alias vif='vi $(eval $FZF_DEFAULT_COMMAND | fzf)'
 alias vifc='vi $(eval $FZF_CURRENT_COMMAND| fzf)'
 alias copy='pbcopy'
 alias vim='vi'
+alias anti='/Users/twoone14/.antigravity/antigravity/bin/antigravity'
 
 eval $(thefuck --alias fk)
-
 eval $(thefuck --alias)
-
-# Added by Antigravity
-export PATH="/Users/twoone14/.antigravity/antigravity/bin:$PATH"
