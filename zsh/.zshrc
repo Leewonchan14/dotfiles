@@ -1,11 +1,21 @@
+#!/bin/zsh
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# zmodload zsh/zprof
+
 # Kiro CLI pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
 # === Kiro CLI pre block. Keep at the top of this file. end ===
 
-# zmodload zsh/zprof
-
 autoload -Uz compinit
-compinit -C
+if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+  compinit
+else
+  compinit -C
+fi
 
 bindkey "^a" vi-beginning-of-line
 bindkey "^e" vi-end-of-line
@@ -27,25 +37,28 @@ fi
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export UPDATE_ZSH_DAYS=13 # 13일마다 한 번만 확인
 
 # ZSH_THEME="robbyrussell"
 
 plugins=(
   git
-  alias-finder
-  aliases
-  copypath
-  copyfile
-  colored-man-pages
+  # alias-finder
+  # aliases
+  # copypath
+  # copyfile
+  # colored-man-pages
   # zsh-vi-mode
   # globalias
   # dotenv
-  docker
+  # docker
   zsh-autosuggestions
   zsh-syntax-highlighting
-  zsh-better-npm-completion
 )
 # source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#663399,standout"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 [[ -f /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme ]] && source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
@@ -109,28 +122,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 # === libpq (postgres) end ===
 
-# >>> conda initialize (Lazy Loading) >>>
-__conda_lazy_load() {
-  unset -f conda
-  __conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
-  if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-  else
-    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-      . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-      export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
-    fi
-  fi
-  unset __conda_setup
-}
-
-conda() {
-  __conda_lazy_load
-  conda "$@"
-}
-# <<< conda initialize <
-
 tmn() {
   ~/.tmux.new.sh
 }
@@ -150,57 +141,93 @@ chain() {
   done
 }
 
-# pyenv setting
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-# pyenv setting end
-
-eval "$(direnv hook zsh)"
-
 alias tm=tmux
 alias tmksv="tm kill-server"
 alias tmkss="tm kill-session"
 
-zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
-zstyle ':omz:plugins:alias-finder' longer yes   # disabled by default
-zstyle ':omz:plugins:alias-finder' exact yes    # disabled by default
-zstyle ':omz:plugins:alias-finder' cheaper yes  # disabled by default
-
 eval "$(zoxide init zsh)"
 
-# zprof
+FZF_EXCLUDE_FILES=(
+  .git
+  node_modules
+  __pycache__
+  venv\*
+  .venv\*
+  .vscode
+  .cursor
+  dist
+  build
+  .DS_Store
+  .vim
+  \*.hpp
+  \*test\*
+)
 
-export FZF_DEFAULT_COMMAND='fd ".*" ~ --hidden --follow --exclude .git'
-export FZF_CURRENT_COMMAND='fd ".*" . --hidden --follow --exclude .git'
+# 2. 제외 목록을 바탕으로 fd 인자 배열 생성
+FZF_DEFAULT_ARGS=(--hidden --follow)
+for item in $FZF_EXCLUDE_FILES; do
+  FZF_DEFAULT_ARGS+=(--exclude "$item")
+done
 export XDG_CONFIG_HOME="$HOME/.config"
 
 alias vi=nvim
 alias claude="~/.claude/local/claude"
 # zoxide edit
 alias cdd=z # Space tab for search
-alias cdf='z $(fd '\''.*'\'' ~ --type d --hidden --follow --exclude .git | fzf)'
+alias fdd='fd --type d ".*" $(pwd) $FZF_DEFAULT_ARGS | fzf'
+alias cdf='z $(fdd)'
+alias fdf='fd --type f ".*" $(pwd) $FZF_DEFAULT_ARGS | fzf'
 # alias hisf='eval "$(history | tail -r | fzf | xargs | awk '\''{$1=""; print $0}'\'')"'
 alias hisf='print -z $(history | awk '\''{$1=""; sub(/^ /, ""); if (!seen[$0]++) print $0}'\'' | tail -r | fzf)'
 alias his="hisf"
 alias psf='ps -eo pid,lstart,etime,command | awk '\''NR==1; NR>1 {print | "sort -k5M -k6 -k7"}'\'' | fzf | awk '\''{print $1}'\'''
-alias cursorf='cursor $(eval $FZF_DEFAULT_COMMAND | fzf)'
-alias codef='code $(eval $FZF_DEFAULT_COMMAND | fzf)'
+alias cursorf='cursor $(fdd)'
+alias codef='code $(fdd)'
 alias dc='docker compose'
 alias dsta='docker ps -q | xargs --no-run-if-empty docker stop'
 alias dcsta="dc ps -q | xargs --no-run-if-empty docker stop"
 alias -g ex="exec -it"
 alias slp='sleep'
-alias vif='vi $(eval $FZF_DEFAULT_COMMAND | fzf)'
-alias vifc='vi $(eval $FZF_CURRENT_COMMAND| fzf)'
+alias vif='vi $(fdf)'
 alias copy='pbcopy'
 alias vim='vi'
 alias anti='/Users/twoone14/.antigravity/antigravity/bin/antigravity'
+qa() {
+  pueue add "$@"
+}
+alias qs='pueue status'
+alias ql='pueue log'
 
-eval $(thefuck --alias fk)
-eval $(thefuck --alias)
+fk() {
+  unset -f fk
+  eval $(thefuck --alias fk)
+  fk "$@"
+}
 
 # Kiro CLI post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
 # Kiro CLI post block. Keep at the bottom of this file.
 
 setopt HIST_FIND_NO_DUPS
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+if [ $? -eq 0 ]; then
+  eval "$__conda_setup"
+else
+  if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+    . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+  else
+    export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+  fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# zprof
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+
+eval "$(mise activate zsh)"
