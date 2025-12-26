@@ -49,13 +49,17 @@ stow fd
 
 설정이 변경되었을 때 최신 상태를 유지하거나 백업하는 방법입니다.
 
-### 1. Homebrew 패키지 목록 업데이트
+### 1. Homebrew 패키지 목록 업데이트 (Brewfile)
 
 새로운 패키지를 설치했거나 삭제했다면 `Brewfile`을 업데이트합니다.
 
+**✅ Brewfile 관리 규칙:**
+- **VS Code 익스텐션 제외**: 환경마다 다를 수 있는 VS Code 익스텐션은 `Brewfile`에서 관리하지 않습니다.
+- **업데이트 방법**: 아래 명령어를 수행하여 VS Code 익스텐션을 제외하고 업데이트합니다.
+
 ```bash
 cd ~/.dotfiles/brew
-brew bundle dump --force
+brew bundle dump --force && grep -v "^vscode" Brewfile > Brewfile.tmp && mv Brewfile.tmp Brewfile
 ```
 
 ### 2. 설정 파일 변경사항 반영
