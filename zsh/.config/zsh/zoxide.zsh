@@ -4,3 +4,5 @@ eval "$(zoxide init zsh)"
 # zoxide edit
 
 alias cdd=z # Space tab for search
+alias zfd="zoxide query -i"
+alias zcp="zoxide query -i | cp"
