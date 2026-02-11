@@ -1,3 +1,4 @@
+alias cp="pbcopy"
 alias vi=nvim
 alias claude="~/.claude/local/claude"
 alias vim='vi'
