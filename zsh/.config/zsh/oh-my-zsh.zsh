@@ -5,8 +5,6 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 export UPDATE_ZSH_DAYS=13 # 13일마다 한 번만 확인
 
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-
 
 autoload -Uz compinit
 if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
