@@ -59,7 +59,7 @@ stow fd
 
 ```bash
 cd ~/.dotfiles/brew
-brew bundle dump --force && grep -v "^vscode" Brewfile > Brewfile.tmp && mv Brewfile.tmp Brewfile
+brew bundle dump --describe --force && grep -v "^vscode" Brewfile > Brewfile.tmp && mv Brewfile.tmp Brewfile
 ```
 
 ### 2. 설정 파일 변경사항 반영
