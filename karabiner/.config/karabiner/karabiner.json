@@ -4,7 +4,34 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "right_shift + j 키 누름을 마우스 왼쪽 클릭으로 변경",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "description": "right_shift + j 를 마우스 왼쪽 클릭으로 변경",
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "pointing_button": "button1"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Move mouse to screen sides",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -17,11 +44,21 @@
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
-                                        "mandatory": ["left_command"],
-                                        "optional": ["any"]
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
                                     }
                                 },
-                                "to": [{ "mouse_key": { "x": -10000 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "x": -10000
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -35,11 +72,21 @@
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
-                                        "mandatory": ["left_command"],
-                                        "optional": ["any"]
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
                                     }
                                 },
-                                "to": [{ "mouse_key": { "y": 10000 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "y": 10000
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -53,11 +100,21 @@
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
-                                        "mandatory": ["left_command"],
-                                        "optional": ["any"]
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
                                     }
                                 },
-                                "to": [{ "mouse_key": { "y": -10000 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "y": -10000
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -71,17 +128,28 @@
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
-                                        "mandatory": ["left_command"],
-                                        "optional": ["any"]
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
                                     }
                                 },
-                                "to": [{ "mouse_key": { "x": 10000 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "x": 10000
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
                     },
                     {
                         "description": "Move mouse to screen edges and corners",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -92,17 +160,27 @@
                                     }
                                 ],
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "c" },
-                                        { "key_code": "u" }
+                                        {
+                                            "key_code": "c"
+                                        },
+                                        {
+                                            "key_code": "u"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
                                         "key_up_order": "strict_inverse"
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 500 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
                                 "to": [
                                     {
                                         "software_function": {
@@ -117,11 +195,21 @@
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "c" },
-                                        { "key_code": "u" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "c"
+                                        },
+                                        {
+                                            "key_code": "u"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -148,7 +236,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 500 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -182,17 +272,27 @@
                                     }
                                 ],
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "c" },
-                                        { "key_code": "i" }
+                                        {
+                                            "key_code": "c"
+                                        },
+                                        {
+                                            "key_code": "i"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
                                         "key_up_order": "strict_inverse"
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 500 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
                                 "to": [
                                     {
                                         "software_function": {
@@ -207,11 +307,21 @@
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "c" },
-                                        { "key_code": "i" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "c"
+                                        },
+                                        {
+                                            "key_code": "i"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -238,7 +348,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 500 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -272,17 +384,27 @@
                                     }
                                 ],
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "c" },
-                                        { "key_code": "j" }
+                                        {
+                                            "key_code": "c"
+                                        },
+                                        {
+                                            "key_code": "j"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
                                         "key_up_order": "strict_inverse"
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 500 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
                                 "to": [
                                     {
                                         "software_function": {
@@ -297,11 +419,21 @@
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "c" },
-                                        { "key_code": "j" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "c"
+                                        },
+                                        {
+                                            "key_code": "j"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -328,7 +460,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 500 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -362,17 +496,27 @@
                                     }
                                 ],
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "c" },
-                                        { "key_code": "k" }
+                                        {
+                                            "key_code": "c"
+                                        },
+                                        {
+                                            "key_code": "k"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
                                         "key_up_order": "strict_inverse"
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 500 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
                                 "to": [
                                     {
                                         "software_function": {
@@ -387,11 +531,21 @@
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "c" },
-                                        { "key_code": "k" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "c"
+                                        },
+                                        {
+                                            "key_code": "k"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -418,7 +572,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 500 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -448,6 +604,7 @@
                     {
                         "available_since": "13.6.0",
                         "description": "Mouse Keys Mode v4 (rev 3)",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -464,9 +621,19 @@
                                 ],
                                 "from": {
                                     "key_code": "j",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "mouse_key": { "vertical_wheel": 32 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "vertical_wheel": 32
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -479,17 +646,35 @@
                                 ],
                                 "from": {
                                     "key_code": "j",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "mouse_key": { "y": 3072 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "y": 3072
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "j" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "j"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -516,7 +701,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -530,7 +717,11 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "mouse_key": { "y": 3072 } }
+                                    {
+                                        "mouse_key": {
+                                            "y": 3072
+                                        }
+                                    }
                                 ],
                                 "type": "basic"
                             },
@@ -549,9 +740,19 @@
                                 ],
                                 "from": {
                                     "key_code": "k",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "mouse_key": { "vertical_wheel": -32 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "vertical_wheel": -32
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -564,17 +765,35 @@
                                 ],
                                 "from": {
                                     "key_code": "k",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "mouse_key": { "y": -3072 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "y": -3072
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "k" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "k"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -601,7 +820,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -615,7 +836,11 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "mouse_key": { "y": -3072 } }
+                                    {
+                                        "mouse_key": {
+                                            "y": -3072
+                                        }
+                                    }
                                 ],
                                 "type": "basic"
                             },
@@ -634,9 +859,19 @@
                                 ],
                                 "from": {
                                     "key_code": "h",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "mouse_key": { "horizontal_wheel": 32 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "horizontal_wheel": 32
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -649,17 +884,35 @@
                                 ],
                                 "from": {
                                     "key_code": "h",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "mouse_key": { "x": -3072 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "x": -3072
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "h" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "h"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -686,7 +939,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -700,7 +955,11 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "mouse_key": { "x": -3072 } }
+                                    {
+                                        "mouse_key": {
+                                            "x": -3072
+                                        }
+                                    }
                                 ],
                                 "type": "basic"
                             },
@@ -719,9 +978,19 @@
                                 ],
                                 "from": {
                                     "key_code": "l",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "mouse_key": { "horizontal_wheel": -32 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "horizontal_wheel": -32
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -734,17 +1003,35 @@
                                 ],
                                 "from": {
                                     "key_code": "l",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "mouse_key": { "x": 3072 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "x": 3072
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "l" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "l"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -771,7 +1058,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -785,7 +1074,11 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "mouse_key": { "x": 3072 } }
+                                    {
+                                        "mouse_key": {
+                                            "x": 3072
+                                        }
+                                    }
                                 ],
                                 "type": "basic"
                             },
@@ -799,17 +1092,33 @@
                                 ],
                                 "from": {
                                     "key_code": "spacebar",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "pointing_button": "button1" }],
+                                "to": [
+                                    {
+                                        "pointing_button": "button1"
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "spacebar" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "spacebar"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -836,7 +1145,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -850,7 +1161,9 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "pointing_button": "button1" }
+                                    {
+                                        "pointing_button": "button1"
+                                    }
                                 ],
                                 "type": "basic"
                             },
@@ -864,17 +1177,33 @@
                                 ],
                                 "from": {
                                     "key_code": "b",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "pointing_button": "button3" }],
+                                "to": [
+                                    {
+                                        "pointing_button": "button3"
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "b" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "b"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -901,7 +1230,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -915,7 +1246,9 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "pointing_button": "button3" }
+                                    {
+                                        "pointing_button": "button3"
+                                    }
                                 ],
                                 "type": "basic"
                             },
@@ -929,17 +1262,33 @@
                                 ],
                                 "from": {
                                     "key_code": "n",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "pointing_button": "button2" }],
+                                "to": [
+                                    {
+                                        "pointing_button": "button2"
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "n" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "n"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -966,7 +1315,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -980,7 +1331,9 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "pointing_button": "button2" }
+                                    {
+                                        "pointing_button": "button2"
+                                    }
                                 ],
                                 "type": "basic"
                             },
@@ -994,7 +1347,11 @@
                                 ],
                                 "from": {
                                     "key_code": "s",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
@@ -1016,10 +1373,18 @@
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "s" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "s"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -1046,7 +1411,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -1087,17 +1454,35 @@
                                 ],
                                 "from": {
                                     "key_code": "f",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "mouse_key": { "speed_multiplier": 2 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "speed_multiplier": 2
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "f" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "f"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -1124,7 +1509,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -1138,7 +1525,11 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "mouse_key": { "speed_multiplier": 2 } }
+                                    {
+                                        "mouse_key": {
+                                            "speed_multiplier": 2
+                                        }
+                                    }
                                 ],
                                 "type": "basic"
                             },
@@ -1152,17 +1543,35 @@
                                 ],
                                 "from": {
                                     "key_code": "left_shift",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [{ "mouse_key": { "speed_multiplier": 0.25 } }],
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "speed_multiplier": 0.25
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "left_shift" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "left_shift"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -1189,7 +1598,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -1203,7 +1614,11 @@
                                             "text": "Mouse Keys Mode v4"
                                         }
                                     },
-                                    { "mouse_key": { "speed_multiplier": 0.25 } }
+                                    {
+                                        "mouse_key": {
+                                            "speed_multiplier": 0.25
+                                        }
+                                    }
                                 ],
                                 "type": "basic"
                             },
@@ -1217,7 +1632,11 @@
                                 ],
                                 "from": {
                                     "key_code": "u",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
@@ -1233,10 +1652,18 @@
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "u" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "u"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -1263,7 +1690,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -1298,7 +1727,11 @@
                                 ],
                                 "from": {
                                     "key_code": "i",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
@@ -1315,10 +1748,18 @@
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "i" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "i"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -1345,7 +1786,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -1381,7 +1824,11 @@
                                 ],
                                 "from": {
                                     "key_code": "o",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
@@ -1398,10 +1845,18 @@
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "o" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "o"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -1428,7 +1883,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -1464,7 +1921,11 @@
                                 ],
                                 "from": {
                                     "key_code": "p",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
@@ -1481,10 +1942,18 @@
                             },
                             {
                                 "from": {
-                                    "modifiers": { "optional": ["any"] },
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
                                     "simultaneous": [
-                                        { "key_code": "d" },
-                                        { "key_code": "p" }
+                                        {
+                                            "key_code": "d"
+                                        },
+                                        {
+                                            "key_code": "p"
+                                        }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -1511,7 +1980,9 @@
                                         ]
                                     }
                                 },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 300 },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 300
+                                },
                                 "to": [
                                     {
                                         "set_variable": {
@@ -1546,11 +2017,19 @@
                                 "from": {
                                     "key_code": "spacebar",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
                                     }
                                 },
-                                "to": [{ "key_code": "spacebar" }],
+                                "to": [
+                                    {
+                                        "key_code": "spacebar"
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
@@ -1562,44 +2041,157 @@
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
                                     }
                                 },
-                                "to": [{ "key_code": "left_arrow" }],
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow"
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
                                     }
                                 },
-                                "to": [{ "key_code": "down_arrow" }],
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow"
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
                                     }
                                 },
-                                "to": [{ "key_code": "up_arrow" }],
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow"
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
                                     }
                                 },
-                                "to": [{ "key_code": "right_arrow" }],
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change right_command+yuio to page up/down , end, home",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "home"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_down"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_up"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "end"
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
@@ -1610,11 +2202,19 @@
             "selected": true,
             "simple_modifications": [
                 {
-                    "from": { "key_code": "caps_lock" },
-                    "to": [{ "key_code": "f19" }]
+                    "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "to": [
+                        {
+                            "key_code": "f19"
+                        }
+                    ]
                 }
             ],
-            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+            "virtual_hid_keyboard": {
+                "keyboard_type_v2": "ansi"
+            }
         }
     ]
 }
