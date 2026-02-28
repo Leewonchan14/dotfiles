@@ -25,6 +25,7 @@ ZSH_CONF_LIST=(
   # ===
   alias.zsh
   mise.zsh
+  ollama.zsh
 )
 
 for conf in $ZSH_CONF_LIST; do
