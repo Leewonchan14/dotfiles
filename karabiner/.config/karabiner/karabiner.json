@@ -607,6 +607,7 @@
                         "enabled": false,
                         "manipulators": [
                             {
+                                "description": "scroll down",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -637,6 +638,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "mouse down",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -662,6 +664,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse key mode when mouse down",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -726,6 +729,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "scroll up",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -756,6 +760,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "mouse up",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -781,6 +786,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse key mode when mouse up",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -845,6 +851,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "scroll left",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -875,6 +882,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "mouse left",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -900,6 +908,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse key mode when mouse left",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -964,6 +973,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "scroll right",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -994,6 +1004,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "mouse right",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -1019,6 +1030,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse key mode when mouse right",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -1083,6 +1095,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "mouse left click",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -1106,6 +1119,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse key mode when mouse left click",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -1168,6 +1182,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "mouse button3",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -1191,6 +1206,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse key mode when mouse button3",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -1253,6 +1269,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "mouse right click",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -1276,6 +1293,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse key mode when mouse right click",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -1338,6 +1356,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse scroll mode (순차 press)",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -1372,6 +1391,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse scroll mode (동시 press)",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -1445,6 +1465,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse speed up (순차 press)",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -1470,6 +1491,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse speed up (동시 press)",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -1534,6 +1556,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse speed down (순차 press)",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -1559,6 +1582,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse speed down (동시 press)",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -1623,6 +1647,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse current screen center (순차 press)",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -1651,6 +1676,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse current screen center (동시 press)",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -1718,6 +1744,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse main screen center (순차 press)",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -1747,6 +1774,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse main screen center (동시 press)",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -1815,6 +1843,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse second screen center (순차 press)",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -1844,6 +1873,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse second screen center (동시 press)",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -1912,6 +1942,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse third screen center (순차 press)",
                                 "conditions": [
                                     {
                                         "name": "mouse_keys_mode_v4",
@@ -1941,6 +1972,7 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "set mouse third screen center (동시 press)",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
