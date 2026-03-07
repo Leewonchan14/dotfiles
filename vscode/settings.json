@@ -1,0 +1,341 @@
+{
+  "editor.fontFamily": "'JetBrains Mono', 'D2Coding', 'JetBrains Mono'",
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+
+  // Cursor Setting
+  "editor.cursorWidth": 3,
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.minimap.enabled": true,
+  "editor.minimap.showSlider": "always",
+  "editor.hover.enabled": "on",
+  "editor.find.cursorMoveOnType": false,
+  "editor.accessibilitySupport": "off",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true,
+  },
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.suggest.matchOnWordStartOnly": false,
+  "editor.suggest.localityBonus": true,
+  "editor.wordBasedSuggestions": "allDocuments",
+  "editor.inlineSuggest.enabled": true,
+  "editor.codeLens": true,
+
+  /**
+   * 2. 가이드라인 및 인레이 힌트 (Inlay Hints & Guides)
+   */
+  "editor.inlayHints.enabled": "on",
+  "editor.inlayHints.fontSize": 16,
+  "editor.inlayHints.padding": true,
+  "editor.inlayHints.fontFamily": "'D2Coding', 'JetBrains Mono', '배달의민족 도현', comic sans ms",
+  "editor.guides.bracketPairs": true,
+  "editor.guides.indentation": true,
+  "editor.renderLineHighlight": "all",
+  "editor.wordWrap": "on",
+
+  /**
+   * 3. 테마 및 색상 커스텀 (UI & Colors)
+   */
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorCustomizations": {
+    // "editorCursor.foreground": "#ffff00",
+    // "editorCursor.background": "#00ff00",
+    "editorInlayHint.background": "#282c34",
+    "editorInlayHint.foreground": "#abb2bf",
+    "editorCursor.foreground": "#ff6b9d",
+    "editorCursor.background": "#ff6b9d33",
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "예약어 이태릭하기",
+        "scope": [
+          "storage.type",
+          "storage.modifier",
+          "keyword.control",
+          "keyword.operator.export",
+          "keyword.operator.import",
+        ],
+        "settings": {
+          "fontStyle": "italic",
+        },
+      },
+    ],
+  },
+  "material-icon-theme.folders.color": "#42a5f5",
+  "material-icon-theme.activeIconPack": "nest",
+  "material-icon-theme.folders.theme": "specific",
+  "window.commandCenter": true,
+  "window.customTitleBarVisibility": "auto",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.editor.editorActionsLocation": "titleBar",
+  "workbench.list.smoothScrolling": true,
+
+  /**
+   * 4. 파일 및 검색 설정 (Files & Search)
+   */
+  "files.associations": {
+    "docker-compose.y*ml": "yaml",
+  },
+  "search.useIgnoreFiles": false,
+  "search.quickAccess.preserveInput": true,
+  "search.quickOpen.includeHistory": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/.next": true,
+    "**/dist": true,
+    "**/.venv": true,
+    "**/__pycache__": true,
+  },
+  "typescript.tsserver.maxTsServerMemory": 8192, // TS 서버 메모리 제한 확장 (성능)
+
+  /**
+   * 5. 터미널 설정 (Terminal)
+   */
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.fontFamily": "'MesloLGS NF', 'JetBrains Mono'",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.scrollback": 1000000000000,
+  "terminal.integrated.enablePersistentSessions": true,
+  "terminal.integrated.localEchoEnabled": "on",
+  "terminal.integrated.enableImages": true,
+  "terminal.integrated.macOptionIsMeta": true,
+  "terminal.integrated.wordSeparators": "()[]{}',\"`─‘’“”|",
+  "terminal.integrated.profiles.osx": {
+    "bash": null,
+    "tmux": {
+      "path": "zsh",
+      "args": ["-c", "/opt/homebrew/bin/tmux"],
+      "icon": "terminal-tmux",
+      "overrideName": true,
+    },
+  },
+  "terminal.integrated.env.linux": {
+    "FIG_NEW_SESSION": "1",
+    "Q_NEW_SESSION": "1",
+    "VSCODE_SHELL_INTEGRATION": "1",
+  },
+  "terminal.integrated.automationProfile.osx": {
+    "path": "/bin/zsh",
+  },
+
+  /**
+   * 6. 언어별 포맷팅 및 설정 (Language Specifics)
+   */
+  "editor.formatOnSave": false,
+  "editor.formatOnType": true,
+  "diffEditor.wordWrap": "on",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": true,
+
+  "[dotenv]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[env]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[sql]": { "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode" },
+  "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[yaml]": { "editor.defaultFormatter": "redhat.vscode-yaml" },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+  },
+  "[json]": { "editor.defaultFormatter": "vscode.json-language-features" },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-containers",
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-containers",
+  },
+
+  // Python
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnType": true,
+  },
+  "python.analysis.inlayHints.callArgumentNames": "all",
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.pytestParameters": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.autoFormatStrings": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.userFileIndexingLimit": -1,
+  "python.terminal.activateEnvironment": false,
+
+  // Java
+  "[java]": { "editor.defaultFormatter": "redhat.java" },
+  "java.format.settings.profile": "GoogleStyle",
+  "java.inlayHints.parameterNames.enabled": "all",
+  "java.debug.settings.hotCodeReplace": "never",
+  "java.gradle.buildServer.enabled": "off",
+
+  // Others
+  "[groovy]": {
+    "editor.defaultFormatter": "NicolasVuillamy.vscode-groovy-lint",
+  },
+  "javascript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+
+  /**
+   * 7. AI 및 확장 프로그램 설정 (AI & Extensions)
+   */
+  // GitHub Copilot & Gemini
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": false,
+    "scminput": false,
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "geminicodeassist.inlineSuggestions.enableAuto": false,
+  "geminicodeassist.displayInlineContextHint": false,
+
+  // GitHub Pull Requests
+  "githubPullRequests.queries": [
+    {
+      "label": "Local Pull Request Branches",
+      "query": "default"
+    },
+    {
+      "label": "Waiting For My Review",
+      "query": "repo:${owner}/${repository} is:open review-requested:${user}"
+    },
+    {
+      "label": "Created By Me",
+      "query": "repo:${owner}/${repository} is:open author:${user}"
+    },
+    {
+      "label": "All Open",
+      "query": "default"
+    },
+    {
+      "label": "Closed",
+      "query": "repo:${owner}/${repository} is:closed"
+    }
+  ],
+
+  // GitLens & Git
+  "git.autofetch": true,
+  "git.allowForcePush": true,
+  "git.blame.statusBarItem.enabled": true,
+  "gitlens.ai.model": "gitkraken",
+  "gitlens.ai.gitkraken.model": "gemini:gemini-2.0-flash",
+  "gitlens.graph.minimap.enabled": false,
+  "gitlens.graph.layout": "editor",
+  "git-graph.repository.fetchAndPrune": true,
+
+  // Cursor & Pylance
+  "cursorpyright.analysis.inlayHints.callArgumentNames": "all",
+  "cursorpyright.analysis.inlayHints.functionReturnTypes": true,
+  "cursorpyright.analysis.inlayHints.variableTypes": true,
+  "cursor.composer.shouldChimeAfterChatFinishes": true,
+  "cursor.composer.usageSummaryDisplay": "always",
+
+  // Background Image Settings
+  "background.enabled": true,
+  "background.editor": {
+    "useFront": false,
+    "random": true,
+    "interval": 60,
+    "images": [
+      "file:///Users/twoone14/Desktop/project/vscode-icon/duck.gif",
+      "file:///Users/twoone14/Desktop/project/vscode-icon/rion.gif",
+      "file:///Users/twoone14/Desktop/project/vscode-icon/jjangoo.gif",
+    ],
+    "style": {
+      "content": "''",
+      "pointer-events": "none",
+      "position": "absolute",
+      "right": "10%",
+      "bottom": "0",
+      "height": "300px",
+      "z-index": "9999",
+      "background-size": "contain",
+      "opacity": 0.8,
+    },
+  },
+  "background.panel": {
+    "images": [
+      "file:///Users/twoone14/Desktop/project/vscode-icon/panel-back.gif",
+    ],
+    "opacity": 0.1,
+    "size": "cover",
+    "position": "center",
+    "interval": 0,
+    "random": false,
+  },
+
+  // Custom CSS and JS Loader
+  "vscode_custom_css.imports": [
+    "https://gist.githubusercontent.com/Leewonchan14/b2ccac03cf136b74745aee8ed2866d85/raw/4535567bc2f676075c65f5277c1c1b8a337caefd/index.js",
+  ],
+  // "vscode_custom_css.imports": [
+  //   "file:///Users/twoone14/Desktop/project/ai-projects/browser/index.js",
+  // ],
+
+  // MetaGo
+  "metaGo.jumper.commandsToUseSingleTargetChar": null,
+
+  /**
+   * 8. 기타 유틸리티 (Misc)
+   */
+  //  Code Runner
+  "code-runner.saveAllFilesBeforeRun": true,
+  "code-runner.runInTerminal": true,
+  "code-runner.executorMap": { "python": "python3 -u" },
+
+  // ErrorLens
+  "errorLens.fontWeight": "600",
+  "errorLens.gutterIconSet": "circle",
+
+  // Vim
+  "vim.smartRelativeLine": true,
+  "vim.useSystemClipboard": true,
+
+  // Prettier
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 80,
+
+  // Remote
+  "remote.SSH.localServerDownload": "off",
+  "remote.SSH.lockfilesInTmp": true,
+
+  // ShellFormat
+  "shellformat.path": "/opt/homebrew/bin/shfmt",
+
+  // CSpell
+  "cSpell.userWords": ["dotenv", "functionals", "nodemon", "rgba", "typeorm"],
+
+  // Postfix
+  "postfix.customTemplates": [
+    {
+      "name": "log",
+      "description": "console.log()",
+      "body": "console.log(\"{{expr}}: \", {{expr}});",
+      "when": [],
+    },
+  ],
+  "postfix.disabledBuiltinTemplates": ["log"],
+  "python.languageServer": "None",
+  "window.zoomLevel": -0.5,
+  "editor.fontSize": 12.5,
+  "editor.smoothScrolling": true,
+  "terminal.integrated.smoothScrolling": true,
+  "editor.cursorSurroundingLines": 10,
+  "basedpyright.analysis.diagnosticMode": "workspace",
+}
