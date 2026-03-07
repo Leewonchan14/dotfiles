@@ -15,7 +15,8 @@ fi
 
 
 plugins=(
-  git
+  # git
+  gitfast
   # alias-finder
   # aliases
   # copypath

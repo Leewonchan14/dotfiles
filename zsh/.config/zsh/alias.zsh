@@ -1,4 +1,5 @@
-alias cp="pbcopy"
+# alias cp="pbcopy"
+alias copy="pbcopy"
 alias vi=nvim
 alias vim='vi'
 alias anti='/Users/twoone14/.antigravity/antigravity/bin/antigravity'
