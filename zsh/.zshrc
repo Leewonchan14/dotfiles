@@ -37,3 +37,8 @@ export EDITOR="code --wait"
 
 # Kiro CLI post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
+
+# Added by Antigravity
+export PATH="/Users/twoone14/.antigravity/antigravity/bin:$PATH"
+# Added by Antigravity IDE
+export PATH="/Users/twoone14/.antigravity-ide/antigravity-ide/bin:$PATH"
