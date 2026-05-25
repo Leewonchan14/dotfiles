@@ -7,6 +7,7 @@ MacOS 설정과 터미널 환경을 Git으로 관리하는 워크스페이스입
 - **Shell**: Zsh (with Oh My Zsh)
 - **Editor**: Neovim, Vim
 - **Package Manager**: Homebrew (Brewfile)
+- **Coding Agent**: pi (terminal coding harness, see [pi.dev](https://pi.dev))
 - **Utility**: tmux, fd, karabiner, raycast
 
 ## 🚀 설치 및 동기화 (Integrate)
@@ -42,8 +43,24 @@ stow nvim
 stow tmux
 stow vim
 stow fd
+stow pi
 # 필요한 다른 패키지들도 동일하게 수행
 ```
+
+### 4. pi 설정 복원
+
+pi는 `settings.json`에 패키지 목록이 정의되어 있어 첫 실행 시 자동 설치됩니다.
+
+```bash
+cd ~/.dotfiles
+stow pi
+cd ~/.pi && npm install
+mkdir -p agent/sessions agent/npm agent/git
+pi
+```
+
+> **💡 Note**: `agent/npm/`, `agent/git/` 디렉토리는 `pi install`로 패키지를 설치할 때 자동 생성되므로 dotfiles에서 관리하지 않습니다. `settings.json`의 `packages` 목록이 설치할 패키지를 정의합니다.
+> `agent/skills/`는 패키지에서 제공하지 않는 독립 스킬만 dotfiles에서 직접 관리합니다.
 
 ## 💾 관리 및 백업 (Backup)
 
@@ -114,5 +131,6 @@ git push
 ├── nvim/        # Neovim 설정 (.config/nvim)
 ├── tmux/        # tmux 설정
 ├── karabiner/   # Karabiner-Elements 설정
+├── pi/          # pi coding agent 설정 (.pi/)
 └── raycast/     # Raycast 설정 및 스크립트
 ```
