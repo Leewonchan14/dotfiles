@@ -1,2 +1,13 @@
 docker-compose.yml
 .DS_Store
+
+# pi — runtime auto-generated
+.pi/superpowers-state.json
+pi/.pi/agent/sessions/
+pi/.pi/agent/npm/
+pi/.pi/agent/git/
+pi/.pi/agent/auth.json
+pi/.pi/agent/mcp*.json
+pi/.pi/node_modules/
+pi/.pi/logs/
+pi/.pi/.pi/
