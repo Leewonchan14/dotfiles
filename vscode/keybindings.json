@@ -904,4 +904,54 @@
     "key": "ctrl+f",
     "command": "fuzzySearch.activeTextEditor"
   },
+  {
+    "key": "cmd+m",
+    "command": "workbench.action.openInAgentManager",
+  },
+  {
+    "key": "alt+cmd+c",
+    "command": "qishan233.copy.absolute.path.line",
+    "when": "editorTextFocus && editorHasSelection",
+  },
+  {
+    "key": "shift+alt+cmd+c",
+    "command": "qishan233.copy.relative.path.line",
+    "when": "editorTextFocus && editorHasSelection",
+  },
+  {
+    "key": "alt+cmd+c",
+    "command": "qishan233.copy.absolute.path",
+    "when": "editorTextFocus && !editorHasSelection",
+  },
+  {
+    "key": "shift+alt+cmd+c",
+    "command": "qishan233.copy.relative.path",
+    "when": "editorTextFocus && !editorHasSelection",
+  },
+  {
+    "key": "cmd+l",
+    "command": "-antigravity.toggleChatFocus",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "cmd+l",
+    "command": "antigravity.toggleChatFocus",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "cmd+k ctrl+cmd+right",
+    "command": "workbench.action.moveEditorToNextGroup"
+  },
+  {
+    "key": "ctrl+cmd+right",
+    "command": "-workbench.action.moveEditorToNextGroup"
+  },
+  {
+    "key": "cmd+k ctrl+cmd+left",
+    "command": "workbench.action.moveEditorToPreviousGroup"
+  },
+  {
+    "key": "ctrl+cmd+left",
+    "command": "-workbench.action.moveEditorToPreviousGroup"
+  },
 ]
