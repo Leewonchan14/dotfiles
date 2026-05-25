@@ -1,0 +1,29 @@
+{
+  "lastChangelogVersion": "0.75.4",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "deepseek-v4-flash",
+  "defaultThinkingLevel": "xhigh",
+  "theme": "atom-one-dark",
+  "packages": [
+    "npm:pi-mcp-adapter",
+    "npm:pi-web-access",
+    "npm:pi-image-subagent",
+    "git:github.com/leblancfg/pi-ansi-themes",
+    "npm:pi-lsp-extension",
+    "git:https://github.com/hasit/pi-community-themes",
+    "npm:pi-btw",
+    "npm:pi-subagents",
+    {
+      "source": "npm:pi-superpowers-plus",
+      "extensions": [
+        "extensions/plan-tracker.ts",
+        "extensions/workflow-monitor.ts",
+        "!extensions/subagent/index.ts"
+      ]
+    },
+    "git:github.com/majorgilles/pi-grill-me",
+    "npm:pi-cmux",
+    "npm:pi-tool-display"
+  ],
+  "showHardwareCursor": true
+}
