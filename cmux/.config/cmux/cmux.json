@@ -1,0 +1,45 @@
+{
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
+  "schemaVersion": 1,
+
+  // tmux-style keyboard shortcuts with Ctrl+A prefix
+  "shortcuts": {
+    "bindings": {
+      // 창 (Surface) 관리 — tmux window equivalents
+      "newSurface":            ["ctrl+a", "c"],     // tmux prefix c  → 새 탭
+      "closeTab":              ["ctrl+a", "x"],     // tmux prefix x  → 탭 닫기
+      "nextSurface":           ["ctrl+a", "n"],     // tmux prefix n  → 다음 탭
+      "prevSurface":           ["ctrl+a", "p"],     // tmux prefix p  → 이전 탭
+      "renameTab":             ["ctrl+a", ","],     // tmux prefix ,  → 탭 이름 변경
+
+      // 분할 (Split) — tmux-pain-control 스타일
+      "splitRight":            ["ctrl+a", "\\"],    // tmux-pain-control |/\  → 가로 분할
+      "splitDown":             ["ctrl+a", "-"],     // tmux prefix -  → 세로 분할
+
+      // 창 이동 (Pane navigation) — tmux-pain-control 스타일
+      "focusLeft":             ["ctrl+a", "h"],     // tmux prefix h  → 왼쪽 창
+      "focusDown":             ["ctrl+a", "j"],     // tmux prefix j  → 아래 창
+      "focusUp":               ["ctrl+a", "k"],     // tmux prefix k  → 위 창
+      "focusRight":            ["ctrl+a", "l"],     // tmux prefix l  → 오른쪽 창
+
+      // 확대/축소
+      "toggleSplitZoom":       ["ctrl+a", "z"],     // tmux prefix z  → 창 확대/축소
+
+      // 카피 모드
+      "toggleTerminalCopyMode":["ctrl+a", "["],     // tmux prefix [  → 카피 모드
+
+      // 워크스페이스 (Workspace) 관리
+      "renameWorkspace":       ["ctrl+a", "$"],     // tmux prefix $  → 워크스페이스 이름 변경
+      "goToWorkspace":         ["ctrl+a", "w"],     // tmux prefix w  → 워크스페이스 선택
+
+      // 명령어 팔레트
+      "commandPalette":        ["ctrl+a", ":"],     // tmux prefix :  → 명령어 입력
+
+      // 알림
+      "showNotifications":     ["ctrl+a", "i"],     // tmux prefix i  → 알림 표시
+
+      // 사이드바 토글 (Ctrl+B와 충돌 방지: cmd+b 사용)
+      "toggleSidebar":         "cmd+b"
+    }
+  }
+}

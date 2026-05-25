@@ -27,6 +27,7 @@ ZSH_CONF_LIST=(
   mise.zsh
   ollama.zsh
   bun.zsh
+  cmux.zsh
 )
 
 for conf in $ZSH_CONF_LIST; do
@@ -42,3 +43,4 @@ export EDITOR="code --wait"
 export PATH="/Users/twoone14/.antigravity/antigravity/bin:$PATH"
 # Added by Antigravity IDE
 export PATH="/Users/twoone14/.antigravity-ide/antigravity-ide/bin:$PATH"
+
