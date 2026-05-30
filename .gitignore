@@ -8,6 +8,10 @@ pi/.pi/agent/npm/
 pi/.pi/agent/git/
 pi/.pi/agent/auth.json
 pi/.pi/agent/mcp*.json
+pi/.pi/agent/mcp-oauth/
 pi/.pi/node_modules/
 pi/.pi/logs/
 pi/.pi/.pi/
+
+# tmux — TPM 플러그인 (TPM이 자동 설치, git submodule 미사용)
+tmux/.config/tmux/plugins/
