@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.75.4",
+  "lastChangelogVersion": "0.78.0",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "xhigh",
@@ -7,7 +7,6 @@
   "packages": [
     "npm:pi-mcp-adapter",
     "npm:pi-web-access",
-    "npm:pi-image-subagent",
     "git:github.com/leblancfg/pi-ansi-themes",
     "npm:pi-lsp-extension",
     "git:https://github.com/hasit/pi-community-themes",
@@ -23,7 +22,47 @@
     },
     "git:github.com/majorgilles/pi-grill-me",
     "npm:pi-cmux",
-    "npm:pi-tool-display"
+    "npm:pi-tool-display",
+    "npm:pi-diff-review",
+    "npm:pi-image-preview",
+    "npm:pi-vision-proxy"
   ],
-  "showHardwareCursor": true
+  "showHardwareCursor": true,
+  "subagents": {
+    "agentOverrides": {
+      "planner": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "thinking": "xhigh"
+      },
+      "scout": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "thinking": "xhigh"
+      },
+      "worker": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "thinking": "xhigh"
+      },
+      "reviewer": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "thinking": "xhigh"
+      },
+      "oracle": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "thinking": "xhigh"
+      },
+      "researcher": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "thinking": "xhigh"
+      },
+      "context-builder": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "thinking": "xhigh"
+      },
+      "delegate": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "thinking": "xhigh"
+      }
+    }
+  },
+  "hideThinkingBlock": true
 }
