@@ -4,6 +4,12 @@
       "command": "npx",
       "args": ["-y", "chrome-devtools-mcp@latest", "--autoConnect"],
       "directTools": true
+    },
+    "notion": {
+      "url": "https://mcp.notion.com/mcp",
+      "auth": "oauth",
+      "lifecycle": "lazy",
+      "directTools": true
     }
   }
 }
