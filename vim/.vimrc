@@ -44,6 +44,9 @@ set nocompatible              " Vi 호환 모드 비활성화
 filetype plugin indent on     " 파일 타입 감지 및 들여쓰기
 syntax on                     " 문법 강조
 
+let mapleader = " "           " 리더 키를 스페이스로 설정 (맨 앞으로 이동)
+nnoremap <Space> <Nop>            " Space 기본 동작(오른쪽 이동) 제거
+
 " 편집기 설정
 set number                    " 줄 번호 표시
 set relativenumber            " 상대 줄 번호
@@ -173,9 +176,9 @@ endfunction
 " 심볼 이름 변경
 nmap <leader>rn <Plug>(coc-rename)
 
-" 코드 포매팅
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" 코드 포매팅 (Black: 전체 파일 포맷, range 미지원)
+nnoremap <silent> <leader>f :call CocAction('format')<CR>
+xnoremap <silent> <leader>f :call CocAction('format')<CR>
 
 " 코드 액션
 xmap <leader>a  <Plug>(coc-codeaction-selected)
@@ -209,7 +212,6 @@ nmap <Leader>p :Prettier<CR>
 
 " ============================================================================
 " 커스텀 단축키 " ============================================================================
-let mapleader = " "           " 리더 키를 스페이스로 설정
 
 " 파일 저장 및 종료
 nnoremap <leader>w :w<CR>
