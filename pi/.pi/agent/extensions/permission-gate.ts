@@ -33,6 +33,9 @@ const dangerousPatterns: DangerousPattern[] = [
 // ── Extension entry point ──────────────────────────────────────────────────
 
 export default function (pi: ExtensionAPI) {
+	// Track which tool call IDs were approved by the user
+	const approvedToolCallIds = new Set<string>();
+
 	pi.on("tool_call", async (event, ctx) => {
 		if (event.toolName !== "bash") return undefined;
 
@@ -61,7 +64,28 @@ export default function (pi: ExtensionAPI) {
 			};
 		}
 
+		// Track this tool call for approval annotation in tool_result
+		approvedToolCallIds.add(event.toolCallId);
+
 		return undefined; // Allow execution
+	});
+
+	pi.on("tool_result", async (event, ctx) => {
+		if (event.toolName !== "bash") return undefined;
+		if (!approvedToolCallIds.has(event.toolCallId)) return undefined;
+
+		approvedToolCallIds.delete(event.toolCallId);
+
+		// Append AI review approval notice to the bash output
+		return {
+			content: [
+				...event.content,
+				{
+					type: "text" as const,
+					text: "\n\n✅ User approved execution after AI safety review.",
+				},
+			],
+		};
 	});
 }
 
