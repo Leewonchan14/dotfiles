@@ -25,7 +25,8 @@
     "npm:pi-tool-display",
     "npm:pi-diff-review",
     "npm:pi-image-preview",
-    "npm:pi-vision-proxy"
+    "npm:pi-vision-proxy",
+    "npm:@ygncode/pi-web"
   ],
   "showHardwareCursor": true,
   "subagents": {
