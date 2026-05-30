@@ -34,7 +34,7 @@ for conf in $ZSH_CONF_LIST; do
   source "$ZSH_CONF_DIR/$conf"
 done
 
-export EDITOR="code --wait"
+export EDITOR="nvim"
 
 # Kiro CLI post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
