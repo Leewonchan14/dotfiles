@@ -199,11 +199,6 @@
   },
 
   {
-    "key": "shift+cmd+l",
-    "command": "turboConsoleLog.displayLogMessage",
-    "when": "resourceLangId = 'python\"",
-  },
-  {
     "key": "cmd+;",
     "command": "-extension.complete-statement",
     "when": "editorTextFocus",
@@ -293,27 +288,12 @@
     "when": "editorTextFocus",
   },
   {
-    "key": "cmd+l",
-    "command": "aipopup.action.modal.generate",
-    "when": "editorFocus && !composerBarIsVisible",
-  },
-  {
-    "key": "shift+cmd+k",
-    "command": "-aipopup.action.modal.generate",
-    "when": "editorFocus && !composerBarIsVisible",
-  },
-  {
     "key": "cmd+k cmd+w",
     "command": "workbench.action.closeAllEditors",
   },
   {
     "key": "cmd+r cmd+w",
     "command": "-workbench.action.closeAllEditors",
-  },
-  {
-    "key": "cmd+k",
-    "command": "-aipopup.action.modal.generate",
-    "when": "editorFocus && !composerBarIsVisible",
   },
   {
     "key": "cmd+k cmd+i",
@@ -325,22 +305,6 @@
     "command": "-editor.action.showHover",
     "when": "editorTextFocus",
   },
-  {
-    "key": "shift+cmd+l",
-    "command": "turboConsoleLog.displayLogMessage",
-    "when": "resourceLangId == 'python\"",
-  },
-  {
-    "key": "shift+cmd+l",
-    "command": "turboConsoleLog.displayLogMessage",
-    "when": "resourceLangId=\"python\"",
-  },
-  {
-    "key": "shift+cmd+l",
-    "command": "turboConsoleLog.displayLogMessage",
-    "when": "resourceLangId != 'python'",
-  },
-
   {
     "key": "shift+enter",
     "command": "workbench.action.terminal.sendSequence",
