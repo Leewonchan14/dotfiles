@@ -808,12 +808,12 @@
   {
     "key": "f3",
     "command": "merge.goToNextUnhandledConflict",
-    "when": "editorHasMergeConflict && !textCompareEditorActive"
+    "when": "editorHasMergeConflict && !textCompareEditorActive",
   },
   {
     "key": "shift+f3",
     "command": "merge.goToPreviousUnhandledConflict",
-    "when": "editorHasMergeConflict && !textCompareEditorActive"
+    "when": "editorHasMergeConflict && !textCompareEditorActive",
   },
 
   // git keybindings
@@ -872,7 +872,7 @@
   // fuzzy search
   {
     "key": "ctrl+f",
-    "command": "fuzzySearch.activeTextEditor"
+    "command": "fuzzySearch.activeTextEditor",
   },
   {
     "key": "cmd+m",
