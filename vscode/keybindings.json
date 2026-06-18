@@ -494,11 +494,6 @@
     "when": "editorColumnSelection && textInputFocus",
   },
   {
-    "key": "cmd+m",
-    "command": "cursor.generateGitCommitMessage",
-  },
-
-  {
     "key": "shift+cmd+j",
     "command": "git-graph.view",
   },
@@ -891,16 +886,6 @@
     "key": "shift+alt+cmd+c",
     "command": "qishan233.copy.relative.path",
     "when": "editorTextFocus && !editorHasSelection",
-  },
-  {
-    "key": "cmd+l",
-    "command": "-antigravity.toggleChatFocus",
-    "when": "!terminalFocus"
-  },
-  {
-    "key": "cmd+l",
-    "command": "antigravity.toggleChatFocus",
-    "when": "!terminalFocus"
   },
   {
     "key": "cmd+k ctrl+cmd+right",
