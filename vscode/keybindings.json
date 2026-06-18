@@ -474,6 +474,17 @@
     "key": "ctrl+[Backquote]",
     "command": "terminal.focus",
   },
+
+  // terminal navigate back
+  {
+    "key": "ctrl+-",
+    "command": "workbench.action.navigateBack",
+    "when": "!terminalFocus && canNavigateBack",
+  },
+  {
+    "key": "ctrl+-",
+    "command": "-workbench.action.navigateBack",
+  },
   {
     "key": "cmd+escape",
     "command": "-claude-vscode.editor.open",
