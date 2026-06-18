@@ -1,0 +1,28 @@
+providers: 
+  webSearch: exa
+edit: 
+  mode: replace
+inspect_image: 
+  enabled: true
+browser: 
+  enabled: false
+symbolPreset: nerd
+theme: 
+  dark: titanium
+  light: light
+setupVersion: 1
+disabledProviders: 
+  - claude
+  - gemini
+modelRoles: 
+  default: opencode-go/deepseek-v4-flash:xhigh
+  vision: opencode-go/mimo-v2.5:off
+  slow: opencode-go/deepseek-v4-pro:xhigh
+  smol: opencode-go/deepseek-v4-flash:xhigh
+  designer: opencode-go/deepseek-v4-flash:xhigh
+  commit: opencode-go/deepseek-v4-flash:xhigh
+  task: opencode-go/deepseek-v4-flash:xhigh
+display: 
+  shimmer: disabled
+terminal: 
+  showImages: false

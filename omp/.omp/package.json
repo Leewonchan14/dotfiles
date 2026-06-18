@@ -1,0 +1,19 @@
+{
+  "name": "omp-user-config",
+  "private": true,
+  "description": "Oh My Pi user extensions and configuration",
+  "devDependencies": {
+    "@oh-my-pi/pi-coding-agent": "^0.75.0",
+    "@oh-my-pi/pi-tui": "^0.75.0",
+    "typebox": "^1.1.0"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

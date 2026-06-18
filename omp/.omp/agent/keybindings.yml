@@ -1,0 +1,7 @@
+tui.input.newLine:
+  - shift+enter
+  - ctrl+j
+app.message.enqueue:
+  - alt+enter
+app.exit: []
+app.model.cycleForward: []
