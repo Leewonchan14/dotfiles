@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.78.0",
+  "lastChangelogVersion": "0.79.1",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "xhigh",
@@ -26,7 +26,13 @@
     "npm:pi-diff-review",
     "npm:pi-image-preview",
     "npm:pi-vision-proxy",
-    "npm:@ygncode/pi-web"
+    {
+      "source": "npm:@ygncode/pi-web",
+      "extensions": [
+        "!.pi/extensions/pi-web.ts"
+      ]
+    },
+    "npm:pi-design-deck"
   ],
   "showHardwareCursor": true,
   "subagents": {
@@ -36,6 +42,7 @@
         "thinking": "xhigh"
       },
       "scout": {
+        "output": false,
         "model": "opencode-go/deepseek-v4-flash",
         "thinking": "xhigh"
       },
@@ -52,6 +59,7 @@
         "thinking": "xhigh"
       },
       "researcher": {
+        "output": false,
         "model": "opencode-go/deepseek-v4-flash",
         "thinking": "xhigh"
       },
