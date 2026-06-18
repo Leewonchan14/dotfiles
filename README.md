@@ -103,6 +103,33 @@ pi
 > **💡 Note**: `agent/npm/`, `agent/git/` 디렉토리는 `pi` 실행 시 자동 생성되므로 dotfiles에서 관리하지 않습니다.  
 > `agent/sessions/`도 런타임 데이터이므로 `.gitignore`에 등록되어 있습니다.
 
+#### 현재 설치된 pi 패키지 (`agent/settings.json` 기준)
+
+| 패키지 | 설명 | 설치 방식 |
+|--------|------|-----------|
+| `pi-mcp-adapter` | MCP 서버 연결 | npm |
+| `pi-web-access` | 웹 검색, 브라우징 | npm |
+| `pi-ansi-themes` | ANSI 테마 (leblancfg) | git |
+| `pi-lsp-extension` | LSP 통합 (진단, 점프, 자동완성) | npm |
+| `pi-community-themes` | 커뮤니티 테마 (hasit) | git |
+| `pi-btw` | 유틸리티 | npm |
+| `pi-subagents` | 서브에이전트 시스템 | npm |
+| `pi-superpowers-plus` | plan-tracker, workflow-monitor (subagent 제외) | npm (선택적 확장) |
+| `pi-grill-me` | 인터뷰 모드 (majorgilles) | git |
+| `pi-cmux` | 터미널 멀티플렉서 | npm |
+| `pi-tool-display` | 도구 사용 시각화 | npm |
+| `pi-diff-review` | Diff 리뷰 | npm |
+| `pi-image-preview` | 이미지 미리보기 | npm |
+| `pi-vision-proxy` | 이미지 자동 설명 (비전 모델 프록시) | npm |
+| `@ygncode/pi-web` | pi-web 웹 기반 UI | npm |
+
+#### MCP 서버
+
+| 서버 | 도구 | 방식 |
+|------|------|------|
+| `chrome-devtools` | 브라우저 자동화 (29개) | `npx chrome-devtools-mcp` (autoConnect, directTools) |
+| `notion` | Notion API (16개) | OAuth (lazy connect, directTools) |
+
 ### 6. tmux plugin 설치
 
 tmux를 처음 실행하면 TPM(Tmux Plugin Manager)이 설치되어 있지 않습니다.
