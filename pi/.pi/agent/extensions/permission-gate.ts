@@ -1,9 +1,13 @@
 /**
  * Permission Gate Extension
  *
- * Blocks dangerous bash commands and requests AI review from the current LLM
- * before asking the user for confirmation. The AI review provides risk analysis
- * and safer alternatives as hints to help the user decide.
+ * Blocks dangerous bash commands (rm -rf, sudo, chmod 777) and requests AI
+ * review before asking for user confirmation.
+ *
+ * For rm -rf specifically, target paths are classified:
+ *   - system (/, /etc, /usr, ...) → dialog with AI review
+ *   - config (~/.config, ~/.pi, ~/.dotfiles, ...) → dialog with AI review
+ *   - safe (node_modules, dist, ~/clawd/, /tmp, ...) → auto-approved
  *
  * The dialog appears immediately with a loading indicator; the AI review
  * arrives asynchronously in the background. The user can choose Yes/No
@@ -16,6 +20,99 @@ import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-a
 import type { TUI, Component } from "@earendil-works/pi-tui";
 import { truncateToWidth, wrapTextWithAnsi } from "@earendil-works/pi-tui";
 import type { Theme } from "@earendil-works/pi-coding-agent";
+
+// ── Types ──────────────────────────────────────────────────────────────────
+
+type PathRisk = "system" | "config" | "safe";
+
+// ── Path classification ────────────────────────────────────────────────────
+
+/**
+ * Absolute system-critical paths. Any rm -rf targeting these (or their
+ * children) triggers the permission dialog.
+ */
+const SYSTEM_PREFIXES = [
+	"/etc",
+	"/usr",
+	"/bin",
+	"/sbin",
+	"/var",
+	"/System",
+	"/Library",
+	"/Applications",
+	"/opt",
+	"/dev",
+	"/cores",
+	"/home",
+	"/private/etc",
+	"/private/var",
+];
+
+/**
+ * Home-relative config paths. rm -rf on these triggers the dialog.
+ */
+const CONFIG_RELATIVE_PREFIXES = [
+	".config",
+	".pi",
+	".dotfiles",
+	".ssh",
+	".aws",
+	".gnupg",
+	".docker",
+	".kube",
+	".gitconfig",
+];
+
+const HOME_DIR = process.env.HOME || "/Users/twoone14";
+
+function extractRmTargets(command: string): string[] {
+	// Extract non-flag arguments after `rm`
+	const tokens = command.trim().split(/\s+/);
+	const args = tokens.slice(1).filter((t) => !t.startsWith("-"));
+	return args.filter((a) => a.length > 0);
+}
+
+function classifyPath(path: string): PathRisk {
+	const resolved = path
+		.replace(/^~(?=$|\/)/, HOME_DIR)
+		.replace(/^\$HOME(?=$|\/)/, HOME_DIR);
+
+	// Root directory is always system-critical
+	if (resolved === "/") return "system";
+	if (resolved === HOME_DIR) return "system"; // rm -rf ~
+
+	if (resolved.startsWith("/")) {
+		// Check system prefixes
+		for (const prefix of SYSTEM_PREFIXES) {
+			if (resolved === prefix || resolved.startsWith(prefix + "/")) {
+				return "system";
+			}
+		}
+
+		// Check home-relative config paths
+		if (resolved.startsWith(HOME_DIR + "/")) {
+			const rel = resolved.slice(HOME_DIR.length + 1);
+			for (const cp of CONFIG_RELATIVE_PREFIXES) {
+				if (rel === cp || rel.startsWith(cp + "/")) {
+					return "config";
+				}
+			}
+		}
+
+		// All other absolute paths (including home subdirs like
+		// clawd, Desktop, /tmp, etc.) are safe
+		return "safe";
+	}
+
+	// Relative paths are always safe (within project context)
+	return "safe";
+}
+
+function isAllSafeRmTargets(command: string): boolean {
+	const targets = extractRmTargets(command);
+	if (targets.length === 0) return false; // no targets = unknown, show dialog
+	return targets.every((t) => classifyPath(t) === "safe");
+}
 
 // ── Dangerous patterns ─────────────────────────────────────────────────────
 
@@ -40,37 +137,50 @@ export default function (pi: ExtensionAPI) {
 		if (event.toolName !== "bash") return undefined;
 
 		const command = event.input.command as string;
-		const matched = dangerousPatterns.find(({ pattern }) => pattern.test(command));
 
-		if (!matched) return undefined;
-
-		if (!ctx.hasUI) {
-			return {
-				block: true,
-				reason: `Dangerous command blocked: ${matched.hint} (no UI for confirmation)`,
-			};
+		// ── 1. sudo (always dangerous regardless of path) ──────────
+		if (/\bsudo\b/i.test(command)) {
+			return await promptOrBlock(
+				event,
+				ctx,
+				command,
+				dangerousPatterns[1],
+				approvedToolCallIds,
+			);
 		}
 
-		// Start AI review in background (dialog shows immediately)
-		const reviewPromise = getAiReview(command, matched.hint, ctx);
-
-		// Show interactive dialog with async review loading
-		const choice = await showPermissionDialog(command, matched, reviewPromise, ctx);
-
-		if (choice !== "Yes") {
-			return {
-				block: true,
-				reason: `Dangerous command blocked: ${matched.hint} (denied by user after AI review)`,
-			};
+		// ── 2. chmod/chown 777 (always dangerous) ──────────────────
+		if (/\b(chmod|chown)\b.*777/i.test(command)) {
+			return await promptOrBlock(
+				event,
+				ctx,
+				command,
+				dangerousPatterns[2],
+				approvedToolCallIds,
+			);
 		}
 
-		// Track this tool call for approval annotation in tool_result
-		approvedToolCallIds.add(event.toolCallId);
+		// ── 3. rm -rf with path classification ─────────────────────
+		if (/\brm\s+(-rf?|--recursive)/i.test(command)) {
+			// Auto-approve if all target paths are safe
+			if (isAllSafeRmTargets(command)) {
+				return undefined;
+			}
 
-		return undefined; // Allow execution
+			// System/config path → show dialog
+			return await promptOrBlock(
+				event,
+				ctx,
+				command,
+				dangerousPatterns[0],
+				approvedToolCallIds,
+			);
+		}
+
+		return undefined;
 	});
 
-	pi.on("tool_result", async (event, ctx) => {
+	pi.on("tool_result", async (event, _ctx) => {
 		if (event.toolName !== "bash") return undefined;
 		if (!approvedToolCallIds.has(event.toolCallId)) return undefined;
 
@@ -87,6 +197,41 @@ export default function (pi: ExtensionAPI) {
 			],
 		};
 	});
+}
+
+// ── Prompt or block helper ─────────────────────────────────────────────────
+
+async function promptOrBlock(
+	event: { toolCallId: string; input: { command: string }; toolName: string },
+	ctx: ExtensionContext,
+	command: string,
+	matched: DangerousPattern,
+	approvedToolCallIds: Set<string>,
+): Promise<{ block: true; reason: string } | undefined> {
+	if (!ctx.hasUI) {
+		return {
+			block: true,
+			reason: `Dangerous command blocked: ${matched.hint} (no UI for confirmation)`,
+		};
+	}
+
+	// Start AI review in background (dialog shows immediately)
+	const reviewPromise = getAiReview(command, matched.hint, ctx);
+
+	// Show interactive dialog with async review loading
+	const choice = await showPermissionDialog(command, matched, reviewPromise, ctx);
+
+	if (choice !== "Yes") {
+		return {
+			block: true,
+			reason: `Dangerous command blocked: ${matched.hint} (denied by user after AI review)`,
+		};
+	}
+
+	// Track this tool call for approval annotation in tool_result
+	approvedToolCallIds.add(event.toolCallId);
+
+	return undefined; // Allow execution
 }
 
 // ── Async dialog ───────────────────────────────────────────────────────────
